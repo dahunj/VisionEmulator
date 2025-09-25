@@ -7,6 +7,8 @@
 #include "VisionEmulatorDlg.h"
 #include "afxdialogex.h"
 
+#include "UDPManager.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -31,6 +33,7 @@ void CVisionEmulatorDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CVisionEmulatorDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &CVisionEmulatorDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -89,3 +92,9 @@ HCURSOR CVisionEmulatorDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CVisionEmulatorDlg::OnBnClickedButton1()
+{
+	g_objUDPManager.Set_ReloadRequest();
+}

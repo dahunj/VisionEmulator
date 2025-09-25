@@ -61,8 +61,9 @@ public:
 
 	void Set_LotReady(CString sLotId, CString sPortNo);
 	void Set_InspectComplete(CString sGbn, CString sLotId, CString sPortNo, CString sTrayNo, CString sCmNo, CString sJudge, CString sNgCode, CString sOffsetX, CString sOffsetY, CString sSizeX, CString sSizeY);
+	void Set_ScanComplete(CString sGbn, CString sLotId, CString sPortNo, CString sTrayNo, CString sCmNo);
 
-
+	void Set_ReloadRequest();
 };
 extern CUDPManager g_objUDPManager;
 

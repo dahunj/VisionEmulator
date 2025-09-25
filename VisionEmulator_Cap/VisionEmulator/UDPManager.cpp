@@ -91,9 +91,9 @@ void CUDPManager::Get_LotStart(CString sLotId, CString sPortNo, CString sTrayCnt
 
 void CUDPManager::Get_LoadComplete(CString sGbn, CString sLotID, CString sPortNo, CString sTNo1, CString sTNo2, CString sCNo1, CString sCNo2, CString sPickNo1, CString sPickNo2)
 {
-	if(sTNo1 != "-1" && sCNo1 != "-1") Set_InspectComplete("T1", sLotID, sPortNo, sTNo1, sCNo1, "N", "88", 0, 0, 0, 0);//sOffsetX, sOffsetY, sSizeX, sSizeY
+	if(sTNo1 != "-1" && sCNo1 != "-1") Set_ScanComplete("T1", sLotID, sPortNo, sTNo1, sCNo1);//Set_InspectComplete("T1", sLotID, sPortNo, sTNo1, sCNo1, "N", "88", 0, 0, 0, 0);//sOffsetX, sOffsetY, sSizeX, sSizeY
 	Sleep(10);
-	if(sTNo2 != "-1" && sCNo2 != "-1")Set_InspectComplete("T1", sLotID, sPortNo, sTNo2, sCNo2, "N", "88", 0, 0, 0, 0);//sOffsetX, sOffsetY, sSizeX, sSizeY
+	if(sTNo2 != "-1" && sCNo2 != "-1") Set_ScanComplete("T2", sLotID, sPortNo, sTNo2, sCNo2);//Set_InspectComplete("T1", sLotID, sPortNo, sTNo2, sCNo2, "N", "88", 0, 0, 0, 0);//sOffsetX, sOffsetY, sSizeX, sSizeY
 	
 }
 
@@ -271,6 +271,13 @@ void CUDPManager::Set_InspectComplete(CString sGbn, CString sLotId, CString sPor
 	Send_Command(strSendCmd);
 }
 
+void CUDPManager::Set_ScanComplete(CString sGbn, CString sLotId, CString sPortNo, CString sTrayNo, CString sCmNo)
+{
+	CString	strSendCmd;
+	strSendCmd.Format("SCAN,COMPLETE,%s,%s,%s,%s,%s", sGbn, sLotId, sPortNo, sTrayNo, sCmNo);
+	Send_Command(strSendCmd);
+}
+
 
 void CUDPManager::OnTimer(UINT_PTR nIDEvent)
 {
@@ -281,4 +288,12 @@ void CUDPManager::OnTimer(UINT_PTR nIDEvent)
 
 	}
 	CWnd::OnTimer(nIDEvent);
+}
+
+void CUDPManager::Set_ReloadRequest()
+{
+	CString	strSendCmd;
+	strSendCmd.Format("RELOAD,REQUEST");
+	Send_Command(strSendCmd);
+
 }
