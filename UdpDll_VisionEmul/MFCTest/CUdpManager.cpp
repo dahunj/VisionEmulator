@@ -221,10 +221,10 @@ void CUdpManager::Send_Command(int nInspector, CString strSend)
 
 void CUdpManager::Initialize()
 {
-	BOOL bOpenedPC1 = m_UdpVisionPC1.Open_Socket(10001, 10000, "127.0.0.1", this);
-	BOOL bOpenedPC2 = m_UdpVisionPC2.Open_Socket(11001, 11000, "127.0.0.1", this);
-	BOOL bOpenedPC3 = m_UdpVisionPC3.Open_Socket(12001, 12000, "127.0.0.1", this);
-	BOOL bOpenedPC4 = m_UdpVisionPC4.Open_Socket(13001, 13000, "127.0.0.1", this);
+	BOOL bOpenedPC1 = m_UdpVisionPC1.Open_Socket(21001, 21000, "127.0.0.1", this);
+	BOOL bOpenedPC2 = m_UdpVisionPC2.Open_Socket(22001, 22000, "127.0.0.1", this);
+	BOOL bOpenedPC3 = m_UdpVisionPC3.Open_Socket(23001, 23000, "127.0.0.1", this);
+	BOOL bOpenedPC4 = m_UdpVisionPC4.Open_Socket(24001, 24000, "127.0.0.1", this);
 
 }
 
@@ -238,7 +238,7 @@ void CUdpManager::Terminate()
 
 
 
-void CUdpManager::Get_LoadComplete(int nInspector, CString sType, CString sLotID, CString nPortNo, CString sTNo1, CString sCNo1, CString sTNo2, CString sCNo2)
+void CUdpManager::Get_LoadComplete(int nInspector, CString sType, CString sLotID, CString nPortNo, CString sTNo1, CString sTNo2, CString sCNo1,  CString sCNo2)
 {
 	int nTNo1, nTNo2;
 	int nCNo1, nCNo2;
@@ -291,12 +291,21 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	int nJudgeNo = 0;
 
 	nJudgeNo = (nRand < nNGPercent ? 7 : 2);
-	m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1].Format("%d", nJudgeNo);
-	
-	m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FAI";
-			
 
-	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1]);
+	if (nJudgeNo == 2)
+	{
+		//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1].Format("%d", nJudgeNo);
+		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "G";
+		m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "";
+	}
+	else 
+	{
+		//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1].Format("%d", nJudgeNo);
+		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "S";
+		m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FAI-1";
+	}			
+
+	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1],"", "", "", "");
 	Send_Command(nInspector, strSendCmd);
 }
 

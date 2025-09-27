@@ -144,12 +144,14 @@ void CMFCTestDlg::OnDestroy()
 
 void CMFCTestDlg::OnBnClickedButton1()
 {
-	gData.sPortNo = "1";
+	g_objUDPManager.Set_LotReady(1, gData.sLotID[0]);
+
+	/*gData.sPortNo = "1";
 	gData.sTNo = "1";
 	gData.sCNo = "3";
 
 	g_objUDPManager.m_sJudge[0][0][2] = "G";
 	g_objUDPManager.m_sCode[0][0][2] = "G";
 
-	g_objUDPManager.Set_InspectComplete(3, "T2", "JJJJNNNN", "1", "1", "3");
+	g_objUDPManager.Set_InspectComplete(3, "T2", "JJJJNNNN", "1", "1", "3");*/
 }

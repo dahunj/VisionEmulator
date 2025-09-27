@@ -63,7 +63,7 @@ private:
 	void Send_Command(int nInspector, CString strSend);
 	void Exception_Log(CString sFunc, CString sGbn, int nCase);	// Receive Exception Log
 
-	void Get_LoadComplete(int nInspector, CString sType, CString sLotID, CString nPortNo, CString sTNo1, CString sCNo1, CString sTNo2, CString sCNo2);
+	void Get_LoadComplete(int nInspector, CString sType, CString sLotID, CString nPortNo, CString sTNo1, CString sTNo2, CString sCNo1,  CString sCNo2);
 	void Get_LotStart(CString sLotID);
 public:
 	CString m_strLog;
