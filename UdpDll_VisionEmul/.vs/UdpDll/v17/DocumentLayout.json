@@ -1,21 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\",
+  "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTestDlg.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|solutionrelative:MFCTest\\MFCTestDlg.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\CUdpManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|solutionrelative:MFCTest\\CUdpManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\CUdpManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\CUdpManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|solutionrelative:MFCTest\\CUdpManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTestDlg.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\MFCTestDlg.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|solutionrelative:MFCTest\\MFCTestDlg.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\MFCTestDlg.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|solutionrelative:MFCTest\\MFCTestDlg.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTest.rc||{177559E0-D141-11D0-92DF-00A0C9138C45}|,   b e g i n       % \u0086 2$  \u0022     ",
+      "AbsoluteMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\MFCTest.rc||{177559E0-D141-11D0-92DF-00A0C9138C45}|,   b e g i n       % \u0086 2$  \u0022     ",
       "RelativeMoniker": "D:0:0:{39D34B56-8167-EEA8-E6BD-D7A154E1AE86}|MFCTest\\MFCTest.vcxproj|solutionrelative:MFCTest\\MFCTest.rc||{177559E0-D141-11D0-92DF-00A0C9138C45}|,   b e g i n       % \u0086 2$  \u0022     "
     }
   ],
@@ -25,59 +29,76 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 282,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 242,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "CUdpManager.h",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\CUdpManager.h",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\CUdpManager.h",
               "RelativeDocumentMoniker": "MFCTest\\CUdpManager.h",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\CUdpManager.h",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\CUdpManager.h",
               "RelativeToolTip": "MFCTest\\CUdpManager.h",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAFQAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAvwEwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-08-19T06:23:15.486Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MFCTestDlg.h",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTestDlg.h",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\MFCTestDlg.h",
               "RelativeDocumentMoniker": "MFCTest\\MFCTestDlg.h",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTestDlg.h",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\MFCTestDlg.h",
               "RelativeToolTip": "MFCTest\\MFCTestDlg.h",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-19T06:23:11.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T06:23:11.997Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MFCTestDlg.cpp",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTestDlg.cpp",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\MFCTestDlg.cpp",
               "RelativeDocumentMoniker": "MFCTest\\MFCTestDlg.cpp",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTestDlg.cpp",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\MFCTestDlg.cpp",
               "RelativeToolTip": "MFCTest\\MFCTestDlg.cpp",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAE4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAIsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-08-19T06:22:08.789Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MFCTest.rc - IDD_MFCTEST_DIALOG - Dialog",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTest.rc",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\MFCTest.rc",
               "RelativeDocumentMoniker": "MFCTest\\MFCTest.rc",
               "ToolTip": "C:\\Users\\USER\\Desktop\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTest.rc - IDD_MFCTEST_DIALOG - Dialog",
-              "RelativeToolTip": "MFCTest\\MFCTest.rc - IDD_MFCTEST_DIALOG - Dialog",
+              "RelativeToolTip": "..\\..\\..\\SW Examples for Me\\UdpDll\\MFCTest\\MFCTest.rc - IDD_MFCTEST_DIALOG - Dialog",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-08-19T06:21:52.897Z",
-              "EditorCaption": " - IDD_MFCTEST_DIALOG - Dialog"
+              "WhenOpened": "2025-08-19T06:21:52.897Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 322,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CUdpManager.cpp",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\CUdpManager.cpp",
+              "RelativeDocumentMoniker": "MFCTest\\CUdpManager.cpp",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\CUdpManager.cpp",
+              "RelativeToolTip": "MFCTest\\CUdpManager.cpp",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAvwHIAAACEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-27T01:02:13.222Z",
+              "EditorCaption": ""
             }
           ]
         }
