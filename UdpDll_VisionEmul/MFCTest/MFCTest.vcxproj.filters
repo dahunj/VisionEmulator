@@ -36,6 +36,9 @@
     <ClInclude Include="CUdpManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="LogFile.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCTest.cpp">
@@ -48,6 +51,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CUdpManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LogFile.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

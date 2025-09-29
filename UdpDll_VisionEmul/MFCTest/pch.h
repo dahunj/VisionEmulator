@@ -27,7 +27,7 @@ typedef struct
 
 extern GLOVAL_DATA	gData;
 
-
+extern CString gsCurrentDir;	// 현재 프로젝트 폴더
 
 
 

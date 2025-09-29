@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "MFCTest.h"
 #include "CUdpManager.h"
-
+#include "LogFile.h"
 
 // CUdpManager
 CUdpManager g_objUDPManager;
@@ -57,7 +57,7 @@ afx_msg LRESULT CUdpManager::OnUdpReceive(WPARAM wParam, LPARAM lParam)
 
 	if (nInspector == 0 || nLen < 1) {
 		strLog.Format("[H<-V%d] : Local Port (%d) Mismatch or Receive Data Zero (%d)", nInspector, fromPort, nLen);
-		//g_objLogFile.Save_InspectorLog(strLog);
+		g_objLogFile.Save_InspectorLog(strLog);
 		return 0;
 	}
 
@@ -73,7 +73,7 @@ afx_msg LRESULT CUdpManager::OnUdpReceive(WPARAM wParam, LPARAM lParam)
 
 		if (nStart < 0 || nStart > nEnd) {
 			strLog.Format("[H<-V%d] : <<Error>> %s : Start(%d), End(%d)", nInspector, m_strRecvCmd, nStart, nEnd);
-			//g_objLogFile.Save_InspectorLog(strLog);
+			g_objLogFile.Save_InspectorLog(strLog);
 			m_strRecvCmd.Delete(0, nEnd + 1);	// 쓰레기값이 채워져 있어서...
 			continue;
 		}
@@ -90,7 +90,7 @@ afx_msg LRESULT CUdpManager::OnUdpReceive(WPARAM wParam, LPARAM lParam)
 		// Inspector Log ////////////////////////////////////////
 		if (strCmd != "HEART" && strOp != "BEAT") {
 			strLog.Format("[H<-V%d] : %s", nInspector, strRecv);
-			//g_objLogFile.Save_InspectorLog(strLog);
+			g_objLogFile.Save_InspectorLog(strLog);
 		}
 		/////////////////////////////////////////////////////////
 
@@ -112,7 +112,7 @@ afx_msg LRESULT CUdpManager::OnUdpReceive(WPARAM wParam, LPARAM lParam)
 		else if (strCmd == "LOAD")
 		{
 			//						Get_LoadComplete    			sGBn,    LotID,     portNo,     TrayNo1,   CmNo1,    TrayNo2,   CmNo2,     TrayNo3,    CmNo3,    TrayNo4,   CmNo4
-			if (strOp == "COMPLETE") Get_LoadComplete(nInspector, strArg[0], strArg[1], strArg[2], strArg[3], strArg[4], strArg[5], strArg[6]);
+			if (strOp == "COMPLETE") Get_LoadComplete(strArg[0], strArg[1], strArg[2], strArg[3], strArg[4], strArg[5], strArg[6]);
 		}
 		else if (strCmd == "LOT")
 		{
@@ -238,7 +238,7 @@ void CUdpManager::Terminate()
 
 
 
-void CUdpManager::Get_LoadComplete(int nInspector, CString sType, CString sLotID, CString nPortNo, CString sTNo1, CString sTNo2, CString sCNo1,  CString sCNo2)
+void CUdpManager::Get_LoadComplete( CString sType, CString sLotID, CString nPortNo, CString sTNo1, CString sTNo2, CString sCNo1,  CString sCNo2)
 {
 	int nTNo1, nTNo2;
 	int nCNo1, nCNo2;
@@ -250,14 +250,14 @@ void CUdpManager::Get_LoadComplete(int nInspector, CString sType, CString sLotID
 	nCNo1 = atoi(sCNo1);
 	nCNo2 = atoi(sCNo2);	
 
-	if (nTNo1 != -1 && nCNo1 != -1) Set_ScanComplete(nInspector, sType, sLotID, nPortNo, sTNo1, sCNo1);
+	if (nTNo1 != -1 && nCNo1 != -1) Set_ScanComplete(1, sType, sLotID, nPortNo, sTNo1, sCNo1);
 	Sleep(10);
-	if (nTNo2 != -1 && nCNo2 != -1) Set_ScanComplete(nInspector, sType, sLotID, nPortNo, sTNo2, sCNo2);
+	if (nTNo2 != -1 && nCNo2 != -1) Set_ScanComplete(1, sType, sLotID, nPortNo, sTNo2, sCNo2);
 	Sleep(10);
 
-	if (nTNo1 != -1 && nCNo1 != -1) Set_InspectComplete(nInspector, sType, sLotID, nPortNo, sTNo1, sCNo1);
+	if (nTNo1 != -1 && nCNo1 != -1) Set_InspectComplete(1, sType, sLotID, nPortNo, sTNo1, sCNo1);
 	Sleep(10);
-	if (nTNo2 != -1 && nCNo2 != -1) Set_InspectComplete(nInspector, sType, sLotID, nPortNo, sTNo2, sCNo2);
+	if (nTNo2 != -1 && nCNo2 != -1) Set_InspectComplete(1, sType, sLotID, nPortNo, sTNo2, sCNo2);
 	Sleep(10);
 
 }
@@ -290,7 +290,7 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	int nNGPercent = 80;
 	int nJudgeNo = 0;
 
-	nJudgeNo = (nRand < nNGPercent ? 7 : 2);
+	nJudgeNo = (nRand < nNGPercent ? 3 : 2);
 
 	if (nJudgeNo == 2)
 	{
@@ -301,8 +301,8 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	else 
 	{
 		//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1].Format("%d", nJudgeNo);
-		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "S";
-		m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FAI-1";
+		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N";
+		m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "ROS NG";
 	}			
 
 	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1],"", "", "", "");
