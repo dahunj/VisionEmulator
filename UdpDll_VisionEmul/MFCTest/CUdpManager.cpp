@@ -287,10 +287,10 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	nCNo = atoi(sCNo);
 
 	int nRand = Get_Random(0, 99);
-	int nNGPercent = 80;
+	int nNGPercent = 50;
 	int nJudgeNo = 0;
 
-	nJudgeNo = (nRand < nNGPercent ? 3 : 2);
+	nJudgeNo = (nRand < nNGPercent ? 4 : 2);
 
 	if (nJudgeNo == 2)
 	{
@@ -301,8 +301,8 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	else 
 	{
 		//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1].Format("%d", nJudgeNo);
-		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N";
-		m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "ROS NG";
+		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "R";
+		m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
 	}			
 
 	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1],"", "", "", "");

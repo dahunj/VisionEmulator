@@ -61,7 +61,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 224,
+          "DockedWidth": 186,
           "SelectedChildIndex": 0,
           "Children": [
             {
@@ -116,7 +116,7 @@
           ]
         },
         {
-          "DockedWidth": 340,
+          "DockedWidth": 378,
           "SelectedChildIndex": 0,
           "Children": [
             {
@@ -127,7 +127,7 @@
               "RelativeDocumentMoniker": "MFCTest\\CUdpManager.cpp",
               "ToolTip": "C:\\Users\\USER\\Desktop\\2.Git\\VisionEmulators\\UdpDll_VisionEmul\\MFCTest\\CUdpManager.cpp",
               "RelativeToolTip": "MFCTest\\CUdpManager.cpp",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAADkAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAABQBAAAAAAAAAAAAAC0BAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-09-27T01:02:13.222Z",
               "EditorCaption": ""
@@ -142,8 +142,7 @@
               "RelativeToolTip": "MFCTest\\pch.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-29T07:14:38.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T07:14:38.263Z"
             },
             {
               "$type": "Document",
@@ -155,8 +154,7 @@
               "RelativeToolTip": "MFCTest\\pch.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-29T07:14:29.476Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T07:14:29.476Z"
             },
             {
               "$type": "Document",
@@ -168,8 +166,7 @@
               "RelativeToolTip": "UdpDll\\pch.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-29T07:13:46.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T07:13:46.658Z"
             },
             {
               "$type": "Document",
@@ -181,8 +178,7 @@
               "RelativeToolTip": "UdpDll\\framework.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-29T07:13:34.895Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T07:13:34.895Z"
             },
             {
               "$type": "Document",
@@ -194,8 +190,7 @@
               "RelativeToolTip": "UdpDll\\pch.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-29T07:13:30.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T07:13:30.207Z"
             },
             {
               "$type": "Document",
@@ -207,8 +202,7 @@
               "RelativeToolTip": "MFCTest\\MFCTest.cpp",
               "ViewState": "AgIAABUAAAAAAAAAAAAEwDEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-29T07:12:57.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T07:12:57.138Z"
             },
             {
               "$type": "Document",
@@ -220,8 +214,7 @@
               "RelativeToolTip": "MFCTest\\LogFile.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-29T07:11:25.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T07:11:25.448Z"
             },
             {
               "$type": "Document",
@@ -233,8 +226,7 @@
               "RelativeToolTip": "MFCTest\\LogFile.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-29T07:10:51.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T07:10:51.012Z"
             }
           ]
         }
