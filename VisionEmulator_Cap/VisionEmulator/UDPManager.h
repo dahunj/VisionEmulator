@@ -64,6 +64,8 @@ public:
 	void Set_ScanComplete(CString sGbn, CString sLotId, CString sPortNo, CString sTrayNo, CString sCmNo);
 
 	void Set_ReloadRequest();
+
+	int Get_Random(int nStart, int nEnd);
 };
 extern CUDPManager g_objUDPManager;
 
