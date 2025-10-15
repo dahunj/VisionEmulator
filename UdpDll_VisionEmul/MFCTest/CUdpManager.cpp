@@ -287,10 +287,14 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	nCNo = atoi(sCNo);
 
 	int nRand = Get_Random(0, 99);
-	int nNGPercent = 50;
+	int nNGPercent1 = 7;
+	int nNGPercent2 = 15;
+	int nNGPercent3 = 15;
+	int nNGPercent4 = 15;
+
 	int nJudgeNo = 0;
 
-	nJudgeNo = (nRand < nNGPercent ? 4 : 2);
+	nJudgeNo = (nRand < nNGPercent1 ? 4 : (nRand < nNGPercent2 ? 5 : (nRand < nNGPercent3 ? 6 : (nRand < nNGPercent4 ? 7 : 2))));
 
 	if (nJudgeNo == 2)
 	{
@@ -302,7 +306,24 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	{
 		//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1].Format("%d", nJudgeNo);
 		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "R";
-		m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
+
+		if (nJudgeNo == 4)
+		{
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
+		}
+		else if (nJudgeNo == 5)
+		{
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
+		}
+		else if (nJudgeNo == 6)
+		{
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
+		}
+		else if (nJudgeNo == 7)
+		{
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
+		}
+		
 	}			
 
 	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1],"", "", "", "");
