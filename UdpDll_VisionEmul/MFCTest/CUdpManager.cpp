@@ -287,10 +287,10 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	nCNo = atoi(sCNo);
 
 	int nRand = Get_Random(0, 99);
-	int nNGPercent1 = 7;
-	int nNGPercent2 = 15;
-	int nNGPercent3 = 15;
-	int nNGPercent4 = 15;
+	int nNGPercent1 = 8;
+	int nNGPercent2 = nNGPercent1 +15;
+	int nNGPercent3 = nNGPercent2 + 15;
+	int nNGPercent4 = nNGPercent3 + 15;
 
 	int nJudgeNo = 0;
 
@@ -309,19 +309,19 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 
 		if (nJudgeNo == 4)
 		{
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECT1";
 		}
 		else if (nJudgeNo == 5)
 		{
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTPISMO";
 		}
 		else if (nJudgeNo == 6)
 		{
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTSLOPE";
 		}
 		else if (nJudgeNo == 7)
 		{
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BT-T-DA";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-DRIVERICDA";
 		}
 		
 	}			
