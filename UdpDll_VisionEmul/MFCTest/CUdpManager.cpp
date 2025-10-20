@@ -287,10 +287,10 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	nCNo = atoi(sCNo);
 
 	int nRand = Get_Random(0, 99);
-	int nNGPercent1 = 8;
-	int nNGPercent2 = nNGPercent1 +15;
-	int nNGPercent3 = nNGPercent2 + 15;
-	int nNGPercent4 = nNGPercent3 + 15;
+	int nNGPercent1 = 35;
+	int nNGPercent2 = nNGPercent1 +10;
+	int nNGPercent3 = nNGPercent2 + 10;
+	int nNGPercent4 = nNGPercent3 + 10;
 
 	int nJudgeNo = 0;
 
@@ -326,7 +326,34 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 		
 	}			
 
-	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1],"", "", "", "");
+	int nRand2 = Get_Random(0, 99);
+	int nNGPercent1_2 = 0;
+	int nNGPercent2_2 = nNGPercent1_2 + 0;
+	int nNGPercent3_2 = nNGPercent2_2 + 0;
+	int nNGPercent4_2 = nNGPercent3_2 + 0;
+
+	nJudgeNo = (nRand < nNGPercent1_2 ? 4 : (nRand < nNGPercent2_2 ? 5 : (nRand < nNGPercent3_2 ? 6 : (nRand < nNGPercent4_2 ? 7 : 2))));
+
+	//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "G";
+	if (nJudgeNo == 4)
+	{		
+		m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECT1";
+	}
+	else if (nJudgeNo == 5)
+	{		
+		m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTPISMO";
+	}
+	else if (nJudgeNo == 6)
+	{		
+		m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTSLOPE";
+	}
+	else if (nJudgeNo == 7)
+	{		
+		m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-DRIVERICDA";
+	}
+
+
+	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1],"", "", "", m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1], "");
 	Send_Command(nInspector, strSendCmd);
 }
 

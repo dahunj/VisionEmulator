@@ -70,6 +70,7 @@ public:
 
 	CString m_sJudge[30][10][40];
 	CString m_sCode[30][10][40];
+	CString m_sCodeV[30][10][40];
 	int Get_Random(int nStart, int nEnd);
 
 
