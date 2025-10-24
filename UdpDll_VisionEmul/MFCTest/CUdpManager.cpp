@@ -287,10 +287,10 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	nCNo = atoi(sCNo);
 
 	int nRand = Get_Random(0, 99);
-	int nNGPercent1 = 35;
-	int nNGPercent2 = nNGPercent1 +10;
-	int nNGPercent3 = nNGPercent2 + 10;
-	int nNGPercent4 = nNGPercent3 + 10;
+	int nNGPercent1 = 0;
+	int nNGPercent2 = nNGPercent1 +0;
+	int nNGPercent3 = nNGPercent2 + 0;
+	int nNGPercent4 = nNGPercent3 + 0;
 
 	int nJudgeNo = 0;
 
@@ -327,12 +327,12 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	}			
 
 	int nRand2 = Get_Random(0, 99);
-	int nNGPercent1_2 = 0;
-	int nNGPercent2_2 = nNGPercent1_2 + 0;
-	int nNGPercent3_2 = nNGPercent2_2 + 0;
-	int nNGPercent4_2 = nNGPercent3_2 + 0;
+	int nNGPercent1_2 = 20;
+	int nNGPercent2_2 = nNGPercent1_2 + 15;
+	int nNGPercent3_2 = nNGPercent2_2 + 15;
+	int nNGPercent4_2 = nNGPercent3_2 + 15;
 
-	nJudgeNo = (nRand < nNGPercent1_2 ? 4 : (nRand < nNGPercent2_2 ? 5 : (nRand < nNGPercent3_2 ? 6 : (nRand < nNGPercent4_2 ? 7 : 2))));
+	nJudgeNo = (nRand2 < nNGPercent1_2 ? 4 : (nRand2 < nNGPercent2_2 ? 5 : (nRand2 < nNGPercent3_2 ? 6 : (nRand2 < nNGPercent4_2 ? 7 : 2))));
 
 	//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "G";
 	if (nJudgeNo == 4)
