@@ -287,10 +287,10 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	nCNo = atoi(sCNo);
 
 	int nRand = Get_Random(0, 99);
-	int nNGPercent1 = 0;
-	int nNGPercent2 = nNGPercent1 +0;
-	int nNGPercent3 = nNGPercent2 + 0;
-	int nNGPercent4 = nNGPercent3 + 0;
+	int nNGPercent1 = 15;
+	int nNGPercent2 = nNGPercent1 +15;
+	int nNGPercent3 = nNGPercent2 + 15;
+	int nNGPercent4 = nNGPercent3 + 15;
 
 	int nJudgeNo = 0;
 
@@ -305,32 +305,57 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	else 
 	{
 		//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1].Format("%d", nJudgeNo);
-		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "R";
-
+		
+		/*m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "R";
 		if (nJudgeNo == 4)
 		{
+			
 			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECT1";
 		}
 		else if (nJudgeNo == 5)
 		{
+			
 			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTPISMO";
 		}
 		else if (nJudgeNo == 6)
 		{
+			
 			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTSLOPE";
 		}
 		else if (nJudgeNo == 7)
 		{
+			
 			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-DRIVERICDA";
+		}*/
+
+		if (nJudgeNo == 4)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "S";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-5";
+		}
+		else if (nJudgeNo == 5)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "T";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-31";
+		}
+		else if (nJudgeNo == 6)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "W";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-20";
+		}
+		else if (nJudgeNo == 7)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "SS";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-22";
 		}
 		
 	}			
 
 	int nRand2 = Get_Random(0, 99);
-	int nNGPercent1_2 = 20;
-	int nNGPercent2_2 = nNGPercent1_2 + 15;
-	int nNGPercent3_2 = nNGPercent2_2 + 15;
-	int nNGPercent4_2 = nNGPercent3_2 + 15;
+	int nNGPercent1_2 = 0;
+	int nNGPercent2_2 = nNGPercent1_2 + 0;
+	int nNGPercent3_2 = nNGPercent2_2 + 0;
+	int nNGPercent4_2 = nNGPercent3_2 + 0;
 
 	nJudgeNo = (nRand2 < nNGPercent1_2 ? 4 : (nRand2 < nNGPercent2_2 ? 5 : (nRand2 < nNGPercent3_2 ? 6 : (nRand2 < nNGPercent4_2 ? 7 : 2))));
 
