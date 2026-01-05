@@ -63,15 +63,13 @@ private:
 	void Send_Command(int nInspector, CString strSend);
 	void Exception_Log(CString sFunc, CString sGbn, int nCase);	// Receive Exception Log
 
-	void Get_LoadComplete(CString sType, CString sLotID, CString nPortNo, CString sTNo1, CString sTNo2, CString sCNo1,  CString sCNo2);
+	void Get_LoadComplete(int nInspector, CString sGbn, CString sLotID, CString nPortNo, CString sTNo1, CString sTNo2, CString sTNo3, CString sTNo4, CString sCNo1, CString sCNo2, CString sCNo3, CString sCNo4);
 	void Get_LotStart(CString sLotID);
 public:
-	CString m_strLog;
 
-	CString m_sJudge[30][10][40];
-	CString m_sCode[30][10][40];
-	CString m_sCodeV[30][10][40];
-	int Get_Random(int nStart, int nEnd);
+	CString m_sJudge[2][30][30];
+	CString m_sCode[2][30][30];
+
 
 
 	void Initialize();
@@ -83,10 +81,8 @@ public:
 
 	void Set_LotReady(int nInspector, CString sLotID);
 
-	void Set_ScanComplete(int nInspector, CString sType, CString sLotID, CString sPortNo, CString sTrayNo, CString sCMNo);
+	void Set_ScanComplete(int nInspector, CString sGbn, CString sLotID, CString sPortNo, CString sTNo, CString sCNo);
 	void Set_InspectComplete(int nInspector, CString sGbn, CString sLotID, CString sPortNo, CString sTNo, CString sCNo);
-
-	void Set_RecipeUpdata(int nInspector);
 };
 
 

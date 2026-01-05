@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "MFCTest.h"
 #include "CUdpManager.h"
-#include "LogFile.h"
+
 
 // CUdpManager
 CUdpManager g_objUDPManager;
@@ -48,16 +48,16 @@ afx_msg LRESULT CUdpManager::OnUdpReceive(WPARAM wParam, LPARAM lParam)
 
 	int nLen = pSock->Read(buf, sizeof(buf), fromIp, fromPort);
 
-	if (fromPort == 21000) { nInspector = INSPECTOR_PC1;  }
-	if (fromPort == 22000) { nInspector = INSPECTOR_PC2;  }
-	if (fromPort == 23000) { nInspector = INSPECTOR_PC3;  }
-	if (fromPort == 24000) { nInspector = INSPECTOR_PC4;  }
+	if (fromPort == 10000) { nInspector = INSPECTOR_PC1;  }
+	if (fromPort == 11000) { nInspector = INSPECTOR_PC2;  }
+	if (fromPort == 12000) { nInspector = INSPECTOR_PC3;  }
+	if (fromPort == 13000) { nInspector = INSPECTOR_PC4;  }
 
 	CString strLog;
 
 	if (nInspector == 0 || nLen < 1) {
 		strLog.Format("[H<-V%d] : Local Port (%d) Mismatch or Receive Data Zero (%d)", nInspector, fromPort, nLen);
-		g_objLogFile.Save_InspectorLog(strLog);
+		//g_objLogFile.Save_InspectorLog(strLog);
 		return 0;
 	}
 
@@ -73,7 +73,7 @@ afx_msg LRESULT CUdpManager::OnUdpReceive(WPARAM wParam, LPARAM lParam)
 
 		if (nStart < 0 || nStart > nEnd) {
 			strLog.Format("[H<-V%d] : <<Error>> %s : Start(%d), End(%d)", nInspector, m_strRecvCmd, nStart, nEnd);
-			g_objLogFile.Save_InspectorLog(strLog);
+			//g_objLogFile.Save_InspectorLog(strLog);
 			m_strRecvCmd.Delete(0, nEnd + 1);	// 쓰레기값이 채워져 있어서...
 			continue;
 		}
@@ -90,7 +90,7 @@ afx_msg LRESULT CUdpManager::OnUdpReceive(WPARAM wParam, LPARAM lParam)
 		// Inspector Log ////////////////////////////////////////
 		if (strCmd != "HEART" && strOp != "BEAT") {
 			strLog.Format("[H<-V%d] : %s", nInspector, strRecv);
-			g_objLogFile.Save_InspectorLog(strLog);
+			//g_objLogFile.Save_InspectorLog(strLog);
 		}
 		/////////////////////////////////////////////////////////
 
@@ -112,7 +112,7 @@ afx_msg LRESULT CUdpManager::OnUdpReceive(WPARAM wParam, LPARAM lParam)
 		else if (strCmd == "LOAD")
 		{
 			//						Get_LoadComplete    			sGBn,    LotID,     portNo,     TrayNo1,   CmNo1,    TrayNo2,   CmNo2,     TrayNo3,    CmNo3,    TrayNo4,   CmNo4
-			if (strOp == "COMPLETE") Get_LoadComplete(strArg[0], strArg[1], strArg[2], strArg[3], strArg[4], strArg[5], strArg[6]);
+			if (strOp == "COMPLETE") Get_LoadComplete(nInspector, strArg[0], strArg[1], strArg[2], strArg[3], strArg[4], strArg[5], strArg[6], strArg[7], strArg[8], strArg[9], strArg[10]);
 		}
 		else if (strCmd == "LOT")
 		{
@@ -221,10 +221,10 @@ void CUdpManager::Send_Command(int nInspector, CString strSend)
 
 void CUdpManager::Initialize()
 {
-	BOOL bOpenedPC1 = m_UdpVisionPC1.Open_Socket(21001, 21000, "127.0.0.1", this);
-	BOOL bOpenedPC2 = m_UdpVisionPC2.Open_Socket(22001, 22000, "127.0.0.1", this);
-	BOOL bOpenedPC3 = m_UdpVisionPC3.Open_Socket(23001, 23000, "127.0.0.1", this);
-	BOOL bOpenedPC4 = m_UdpVisionPC4.Open_Socket(24001, 24000, "127.0.0.1", this);
+	BOOL bOpenedPC1 = m_UdpVisionPC1.Open_Socket(10001, 10000, "127.0.0.1", this);
+	BOOL bOpenedPC2 = m_UdpVisionPC2.Open_Socket(11001, 11000, "127.0.0.1", this);
+	BOOL bOpenedPC3 = m_UdpVisionPC3.Open_Socket(12001, 12000, "127.0.0.1", this);
+	BOOL bOpenedPC4 = m_UdpVisionPC4.Open_Socket(13001, 13000, "127.0.0.1", this);
 
 }
 
@@ -238,43 +238,38 @@ void CUdpManager::Terminate()
 
 
 
-void CUdpManager::Get_LoadComplete( CString sType, CString sLotID, CString nPortNo, CString sTNo1, CString sTNo2, CString sCNo1,  CString sCNo2)
+void CUdpManager::Get_LoadComplete(int nInspector, CString sGbn, CString sLotID, CString nPortNo, CString sTNo1, CString sTNo2, CString sTNo3, CString sTNo4, CString sCNo1, CString sCNo2, CString sCNo3, CString sCNo4)
 {
-	int nTNo1, nTNo2;
-	int nCNo1, nCNo2;
+	int nTNo1, nTNo2, nTNo3, nTNo4;
+	int nCNo1, nCNo2, nCNo3, nCNo4;
 
 	nTNo1 = atoi(sTNo1);
 	nTNo2 = atoi(sTNo2);
-	
+	nTNo3 = atoi(sTNo3);
+	nTNo4 = atoi(sTNo4);
 
 	nCNo1 = atoi(sCNo1);
-	nCNo2 = atoi(sCNo2);	
+	nCNo2 = atoi(sCNo2);
+	nCNo3 = atoi(sCNo3);
+	nCNo4 = atoi(sCNo4);
 
-	if (nTNo1 != -1 && nCNo1 != -1) Set_ScanComplete(1, sType, sLotID, nPortNo, sTNo1, sCNo1);
-	Sleep(10);
-	if (nTNo2 != -1 && nCNo2 != -1) Set_ScanComplete(1, sType, sLotID, nPortNo, sTNo2, sCNo2);
-	Sleep(10);
+	if (nTNo1 != -1 && nCNo1 != -1) Set_ScanComplete(nInspector, sGbn, sLotID, nPortNo, sTNo1, sCNo1);
+	if (nTNo2 != -1 && nCNo2 != -1) Set_ScanComplete(nInspector, sGbn, sLotID, nPortNo, sTNo2, sCNo2);
+	if (nTNo3 != -1 && nCNo3 != -1) Set_ScanComplete(nInspector, sGbn, sLotID, nPortNo, sTNo3, sCNo3);
+	if (nTNo4 != -1 && nCNo4 != -1) Set_ScanComplete(nInspector, sGbn, sLotID, nPortNo, sTNo4, sCNo4);
 
-	if (nTNo1 != -1 && nCNo1 != -1) Set_InspectComplete(1, sType, sLotID, nPortNo, sTNo1, sCNo1);
-	Sleep(10);
-	if (nTNo2 != -1 && nCNo2 != -1) Set_InspectComplete(1, sType, sLotID, nPortNo, sTNo2, sCNo2);
-	Sleep(10);
+	if (nTNo1 != -1 && nCNo1 != -1) Set_InspectComplete(nInspector, sGbn, sLotID, nPortNo, sTNo1, sCNo1);
+	if (nTNo2 != -1 && nCNo2 != -1) Set_InspectComplete(nInspector, sGbn, sLotID, nPortNo, sTNo2, sCNo2);
+	if (nTNo3 != -1 && nCNo3 != -1) Set_InspectComplete(nInspector, sGbn, sLotID, nPortNo, sTNo3, sCNo3);
+	if (nTNo4 != -1 && nCNo4 != -1) Set_InspectComplete(nInspector, sGbn, sLotID, nPortNo, sTNo4, sCNo4);
 
 }
 
-void CUdpManager::Set_ScanComplete(int nInspector, CString sType, CString sLotID, CString sPortNo, CString sTrayNo, CString sCMNo)
+void CUdpManager::Set_ScanComplete(int nInspector, CString sGbn, CString sLotID, CString sPortNo, CString sTNo, CString sCNo)
 {
 	CString	strSendCmd;
-	strSendCmd.Format("SCAN,COMPLETE,%s,%s,%s,%s,%s", sType, sLotID, sPortNo, sTrayNo, sCMNo);
+	strSendCmd.Format("SCAN,COMPLETE,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo);
 	Send_Command(nInspector, strSendCmd);
-}
-
-int CUdpManager::Get_Random(int nStart, int nEnd)
-{
-	static BOOL bSeed = FALSE;
-	if (nStart >= nEnd) return 0;
-	if (!bSeed) { srand((unsigned)time(NULL)); bSeed = TRUE; }
-	return (rand() % (nEnd - nStart + 1) + nStart);
 }
 
 void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLotID, CString sPortNo, CString sTNo, CString sCNo)
@@ -286,99 +281,7 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	nTNo = atoi(sTNo);
 	nCNo = atoi(sCNo);
 
-	int nRand = Get_Random(0, 99);
-	int nNGPercent1 = 50;
-	int nNGPercent2 = nNGPercent1 +50;
-	int nNGPercent3 = nNGPercent2 + 10;
-	int nNGPercent4 = nNGPercent3 + 10;
-
-	int nJudgeNo = 0;
-
-	nJudgeNo = (nRand < nNGPercent1 ? 4 : (nRand < nNGPercent2 ? 5 : (nRand < nNGPercent3 ? 6 : (nRand < nNGPercent4 ? 7 : 2))));
-
-	if (nJudgeNo == 2)
-	{
-		//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1].Format("%d", nJudgeNo);
-		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "G";
-		m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "";
-	}
-	else 
-	{
-		//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1].Format("%d", nJudgeNo);
-		
-		/*m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "R";
-		if (nJudgeNo == 4)
-		{
-			
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECT1";
-		}
-		else if (nJudgeNo == 5)
-		{
-			
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTPISMO";
-		}
-		else if (nJudgeNo == 6)
-		{
-			
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTSLOPE";
-		}
-		else if (nJudgeNo == 7)
-		{
-			
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-DRIVERICDA";
-		}*/
-
-		if (nJudgeNo == 4)
-		{
-			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "Z";
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-124A";
-		}
-		else if (nJudgeNo == 5)
-		{
-			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "ZS";
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-124B";
-		}
-		else if (nJudgeNo == 6)
-		{
-			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "T";
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-20";
-		}
-		else if (nJudgeNo == 7)
-		{
-			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "W";
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-22";
-		}
-		
-	}			
-
-	int nRand2 = Get_Random(0, 99);
-	int nNGPercent1_2 = 0;
-	int nNGPercent2_2 = nNGPercent1_2 + 0;
-	int nNGPercent3_2 = nNGPercent2_2 + 0;
-	int nNGPercent4_2 = nNGPercent3_2 + 0;
-
-	nJudgeNo = (nRand2 < nNGPercent1_2 ? 4 : (nRand2 < nNGPercent2_2 ? 5 : (nRand2 < nNGPercent3_2 ? 6 : (nRand2 < nNGPercent4_2 ? 7 : 2))));
-
-	//m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "G";
-	if (nJudgeNo == 4)
-	{		
-		m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECT1";
-	}
-	else if (nJudgeNo == 5)
-	{		
-		m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTPISMO";
-	}
-	else if (nJudgeNo == 6)
-	{		
-		m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-GLUECTSLOPE";
-	}
-	else if (nJudgeNo == 7)
-	{		
-		m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1] = "FS-S-DRIVERICDA";
-	}
-
-
-	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1],"", "", "", m_sCodeV[nPortNo - 1][nTNo - 1][nCNo - 1], "");
+	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1]);
 	Send_Command(nInspector, strSendCmd);
 }
 
@@ -406,12 +309,6 @@ void CUdpManager::Set_LotReady(int nInspector, CString sLotID)
 	Send_Command(nInspector, strSendCmd);
 }
 
-void CUdpManager::Set_RecipeUpdata(int nInspector)
-{
-	CString	strSendCmd;
-	strSendCmd.Format("RECIPE,UPDATA,1");
-	Send_Command(nInspector, strSendCmd);
-}
 
 
 void CUdpManager::OnTimer(UINT_PTR nIDEvent)
