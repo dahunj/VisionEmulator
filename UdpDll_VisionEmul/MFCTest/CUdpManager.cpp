@@ -287,10 +287,10 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	nCNo = atoi(sCNo);
 
 	int nRand = Get_Random(0, 99);
-	int nNGPercent1 = 15;
-	int nNGPercent2 = nNGPercent1 +15;
-	int nNGPercent3 = nNGPercent2 + 15;
-	int nNGPercent4 = nNGPercent3 + 15;
+	int nNGPercent1 = 50;
+	int nNGPercent2 = nNGPercent1 +50;
+	int nNGPercent3 = nNGPercent2 + 10;
+	int nNGPercent4 = nNGPercent3 + 10;
 
 	int nJudgeNo = 0;
 
@@ -330,22 +330,22 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 
 		if (nJudgeNo == 4)
 		{
-			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "S";
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-5";
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "Z";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-124A";
 		}
 		else if (nJudgeNo == 5)
 		{
-			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "T";
-			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-31";
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "ZS";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-124B";
 		}
 		else if (nJudgeNo == 6)
 		{
-			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "W";
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "T";
 			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-20";
 		}
 		else if (nJudgeNo == 7)
 		{
-			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "SS";
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "W";
 			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "DFAI-22";
 		}
 		
@@ -406,6 +406,12 @@ void CUdpManager::Set_LotReady(int nInspector, CString sLotID)
 	Send_Command(nInspector, strSendCmd);
 }
 
+void CUdpManager::Set_RecipeUpdata(int nInspector)
+{
+	CString	strSendCmd;
+	strSendCmd.Format("RECIPE,UPDATA,1");
+	Send_Command(nInspector, strSendCmd);
+}
 
 
 void CUdpManager::OnTimer(UINT_PTR nIDEvent)

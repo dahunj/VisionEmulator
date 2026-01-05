@@ -85,6 +85,8 @@ public:
 
 	void Set_ScanComplete(int nInspector, CString sType, CString sLotID, CString sPortNo, CString sTrayNo, CString sCMNo);
 	void Set_InspectComplete(int nInspector, CString sGbn, CString sLotID, CString sPortNo, CString sTNo, CString sCNo);
+
+	void Set_RecipeUpdata(int nInspector);
 };
 
 

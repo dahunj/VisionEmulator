@@ -144,7 +144,7 @@ void CMFCTestDlg::OnDestroy()
 
 void CMFCTestDlg::OnBnClickedButton1()
 {
-	g_objUDPManager.Set_LotReady(1, gData.sLotID[0]);
+	g_objUDPManager.Set_RecipeUpdata(1);
 
 	/*gData.sPortNo = "1";
 	gData.sTNo = "1";
