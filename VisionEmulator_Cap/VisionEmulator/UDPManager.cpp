@@ -93,8 +93,8 @@ void CUDPManager::Get_LoadComplete(CString sGbn, CString sLotID, CString sPortNo
 {
 	int nRand = Get_Random(0, 99);
 	CString strTemp;
-	if(nRand < 97) strTemp = "G";
-	else strTemp = "N";
+	if(nRand < 0) strTemp = "G";
+	else strTemp = "A";
 
 	if(sTNo1 != "-1" && sCNo1 != "-1") Set_ScanComplete("T1", sLotID, sPortNo, sTNo1, sCNo1);//Set_InspectComplete("T1", sLotID, sPortNo, sTNo1, sCNo1, "N", "88", 0, 0, 0, 0);//sOffsetX, sOffsetY, sSizeX, sSizeY
 	Sleep(10);
