@@ -102,7 +102,7 @@ void CUDPManager::Get_LoadComplete(CString sGbn, CString sLotID, CString sPortNo
 	Sleep(10);
 	if(sTNo1 != "-1" && sCNo1 != "-1") Set_InspectComplete("T1", sLotID, sPortNo, sTNo1, sCNo1, strTemp, "88", 0, 0, 0, 0);
 	Sleep(10);
-	if(sTNo2 != "-1" && sCNo2 != "-1")Set_InspectComplete("T1", sLotID, sPortNo, sTNo2, sCNo2, strTemp, "88", 0, 0, 0, 0);
+	if(sTNo2 != "-1" && sCNo2 != "-1") Set_InspectComplete("T1", sLotID, sPortNo, sTNo2, sCNo2, strTemp, "88", 0, 0, 0, 0);
 
 }
 
