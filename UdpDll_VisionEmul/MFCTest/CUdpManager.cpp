@@ -254,14 +254,21 @@ void CUdpManager::Get_LoadComplete(int nInspector, CString sGbn, CString sLotID,
 	nCNo4 = atoi(sCNo4);
 
 	if (nTNo1 != -1 && nCNo1 != -1) Set_ScanComplete(nInspector, sGbn, sLotID, nPortNo, sTNo1, sCNo1);
+	Sleep(10);
 	if (nTNo2 != -1 && nCNo2 != -1) Set_ScanComplete(nInspector, sGbn, sLotID, nPortNo, sTNo2, sCNo2);
+	Sleep(10);
 	if (nTNo3 != -1 && nCNo3 != -1) Set_ScanComplete(nInspector, sGbn, sLotID, nPortNo, sTNo3, sCNo3);
+	Sleep(10);
 	if (nTNo4 != -1 && nCNo4 != -1) Set_ScanComplete(nInspector, sGbn, sLotID, nPortNo, sTNo4, sCNo4);
-
+	Sleep(10);
 	if (nTNo1 != -1 && nCNo1 != -1) Set_InspectComplete(nInspector, sGbn, sLotID, nPortNo, sTNo1, sCNo1);
+	Sleep(10);
 	if (nTNo2 != -1 && nCNo2 != -1) Set_InspectComplete(nInspector, sGbn, sLotID, nPortNo, sTNo2, sCNo2);
+	Sleep(10);
 	if (nTNo3 != -1 && nCNo3 != -1) Set_InspectComplete(nInspector, sGbn, sLotID, nPortNo, sTNo3, sCNo3);
+	Sleep(10);
 	if (nTNo4 != -1 && nCNo4 != -1) Set_InspectComplete(nInspector, sGbn, sLotID, nPortNo, sTNo4, sCNo4);
+	Sleep(10);
 
 }
 
@@ -280,6 +287,65 @@ void CUdpManager::Set_InspectComplete(int nInspector, CString sGbn, CString sLot
 	nPortNo = atoi(sPortNo);
 	nTNo = atoi(sTNo);
 	nCNo = atoi(sCNo);
+
+	if (sGbn == "B2")
+	{
+		if (nTNo == 1)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BL_T_LECT";
+		}
+		else if (nTNo == 2)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BL_T_CT";
+		}
+		else if (nTNo == 3)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BL_T_CP";
+		}
+		else if (nTNo == 4)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BL_T_LESHDOT";
+		}
+		else if (nTNo == 5)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BL_T_Outerwhitedot";
+		}
+		else if (nTNo == 6)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BL_T_SC";
+		}
+		else if (nTNo == 7)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "BL_T_Innerwhitedot";
+		}
+		else if (nTNo == 8)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "MO_T_DT";
+		}
+		else if (nTNo == 9)
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "SS_S_DT";
+		}
+		else
+		{
+			m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "N2";
+			m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "VS_T_NOEP";
+		}	
+	}
+	else
+	{
+		m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1] = "G";
+		m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1] = "G";
+	}
 
 	strSendCmd.Format("INSPECT,COMPLETE,%s,%s,%s,%s,%s,%s,%s", sGbn, sLotID, sPortNo, sTNo, sCNo, m_sJudge[nPortNo - 1][nTNo - 1][nCNo - 1], m_sCode[nPortNo - 1][nTNo - 1][nCNo - 1]);
 	Send_Command(nInspector, strSendCmd);
